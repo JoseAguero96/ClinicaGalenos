@@ -1,0 +1,108 @@
+﻿<Window x:Class="ClinicaGalenos.Principal"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClinicaGalenos"
+        mc:Ignorable="d"
+        Title="Principal" Height="669.5" Width="1299" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" BorderBrush="Black" BorderThickness="1">
+    <Grid Margin="0,0,-2,-2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#FF3680CB">
+                    <StackPanel HorizontalAlignment="Right">
+                        <Button x:Name="btnCerrar" Width="30" Height="30" Padding="0" Background="Transparent" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnCerrar_Click">
+                            <materialDesign:PackIcon Kind="WindowClose" Foreground="White" Width="20" Height="20" />
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Grid>
+        </Border>
+        <Rectangle Fill="#FF1C1C1D" HorizontalAlignment="Left" Margin="0,30,0,-63" Stroke="Black" Width="1297"/>
+        <TextBox x:Name="txt_Profile" HorizontalAlignment="Left" Height="23" Margin="722,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lbl_Bienvenida" Content="Label" HorizontalAlignment="Left" Height="51" Margin="42,44,0,-64" VerticalAlignment="Top" Width="332" Background="{x:Null}" Foreground="#DDFFFFFF" FontWeight="Normal"/>
+        <Grid x:Name="gridAgendarHora" HorizontalAlignment="Left" Height="280" Margin="22,211,0,-460" VerticalAlignment="Top" Width="580">
+            <Label x:Name="lblRut" Content="R.U.T" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="58" Margin="0,6,0,0"/>
+            <TextBox x:Name="txtBuscarRut" HorizontalAlignment="Left" Height="27" Margin="55,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="#DD000000"/>
+            <Button x:Name="btnBuscarRut" Content="Buscar" HorizontalAlignment="Left" Margin="246,7,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="btnBuscarRut_Click"/>
+            <Label x:Name="lblNombrePaciente" Content="Nombre Paciente:" HorizontalAlignment="Left" Height="34" Margin="0,42,0,0" VerticalAlignment="Top" Width="143"/>
+            <TextBox x:Name="txtNombrePaciente" HorizontalAlignment="Left" Height="23" Margin="130,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblArea" Content="Área:" HorizontalAlignment="Left" Height="26" Margin="-1,77,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbxArea" HorizontalAlignment="Left" Height="26" Margin="55,73,0,0" VerticalAlignment="Top" Width="227" BorderThickness="0,0,0,2" SelectionChanged="cbxArea_SelectionChanged"/>
+            <Label x:Name="lblMedico" Content="Médico:" HorizontalAlignment="Left" Height="29" Margin="0,108,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbxMedico" HorizontalAlignment="Left" Height="26" Margin="67,105,0,0" VerticalAlignment="Top" Width="227" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblFechaHora" Content="Fecha Hora:" HorizontalAlignment="Left" Height="27" Margin="0,144,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dpFechaHora" HorizontalAlignment="Left" Height="27" Margin="90,144,0,0" VerticalAlignment="Top" SelectedDateChanged="dpFechaHora_SelectedDateChanged" RenderTransformOrigin="-1.929,0.333"/>
+            <Label x:Name="lblModulo" Content="Módulo:" HorizontalAlignment="Left" Height="28" Margin="0,180,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbxModulo" HorizontalAlignment="Left" Height="26" Margin="72,176,0,0" VerticalAlignment="Top" Width="117" BorderThickness="0,0,0,2"/>
+            <Button x:Name="btnAgendarHora" Content="Agendar" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="133" Click="btnAgendarHora_Click"/>
+            <TextBox x:Name="txtIdPaciente" HorizontalAlignment="Left" Height="23" Margin="389,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Grid x:Name="gridMenuSecretaria" HorizontalAlignment="Left" Height="84" Margin="22,110,0,-163" VerticalAlignment="Top" Width="775">
+            <Button Uid="2" x:Name="btnMenuHora" Content="Agendar hora" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="167" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
+            <Button Uid="1" x:Name="btnMenuMedicos" Content="Medicos" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="168" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
+            <Button Uid="0" x:Name="btnMenuInformes" Content="Informes" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top" Width="167" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
+            <Button Uid="3" x:Name="btnMenuAtencion" Content="Registrar Atención" HorizontalAlignment="Left" Margin="599,10,0,0" VerticalAlignment="Top" Width="166" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
+        </Grid>
+        <Grid x:Name="gridAdministrador" HorizontalAlignment="Left" Height="84" Margin="22,115,0,-168" VerticalAlignment="Top" Width="775">
+            <Button Uid="4" x:Name="btnManejoUsuarios" Content="Manejo de usuarios" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="167" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
+            <Button Uid="5" x:Name="btnRecaudaciones" Content="Recaudaciones" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="168" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
+        </Grid>
+        <Grid x:Name="gridManejoUsuarios" HorizontalAlignment="Left" Height="442" Margin="22,204,0,-615" VerticalAlignment="Top" Width="728">
+            <Button x:Name="btnAgregarUsuario" Content="+ Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="132" Click="btnAgregarUsuario_Click"/>
+            <DataGrid x:Name="gvUsers" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" Width="710" Height="360" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False" SelectionChanged="gvUsers_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colId" Header="Id" Binding="{Binding Path=id}" Width="*"/>
+                    <DataGridTextColumn x:Name="colNombre" Header="Nombre" Binding="{Binding Path=name}" Width="*"/>
+                    <DataGridTextColumn x:Name="colApellido" Header="Apellido" Binding="{Binding Path=last_name}" Width="*"/>
+                    <DataGridTextColumn x:Name="colEmail" Header="Email" Binding="{Binding Path=email}" Width="*"/>
+                    <DataGridTextColumn x:Name="colPerfil" Header="Perfil" Binding="{Binding Path=perfil}" Width="*"/>
+                    <DataGridHyperlinkColumn/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Rectangle Fill="#FF2196F3" HorizontalAlignment="Left" Height="279" Margin="723,10,0,0" Stroke="#FF2196F3" VerticalAlignment="Top" Width="2"/>
+        </Grid>
+        <Grid x:Name="gridNewEdit" HorizontalAlignment="Left" Height="466" Margin="755,194,0,-629" VerticalAlignment="Top" Width="503">
+            <Label x:Name="lblNombreEdit" Content="Nombre:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtNombreEdit" HorizontalAlignment="Left" Height="28" Margin="16,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblApellidoEdit" Content="Apellido:" HorizontalAlignment="Left" Margin="262,54,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtApellidoEdit" HorizontalAlignment="Left" Height="27" Margin="274,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblEmail" Content="Email:" HorizontalAlignment="Left" Margin="12,131,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtEmailEdit" HorizontalAlignment="Left" Height="27" Margin="16,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblRutEdit" Content="R.U.T:" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtRutEdit" HorizontalAlignment="Left" Height="32" Margin="16,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblTelefonoEdit" Content="Teléfono:" HorizontalAlignment="Left" Margin="270,195,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtTelefonoEdit" HorizontalAlignment="Left" Height="32" Margin="270,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" BorderThickness="0,0,0,2"/>
+            <Button x:Name="btnAddNew" Content="Agregar" HorizontalAlignment="Left" Margin="399,421,0,0" VerticalAlignment="Top" Width="94" Click="btnAddNew_Click"/>
+            <Button x:Name="btnEdit" Content="Editar" HorizontalAlignment="Left" Margin="16,421,0,0" VerticalAlignment="Top" Width="75" Click="btnEdit_Click"/>
+            <Label x:Name="lblTitle" Content="Label" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="lblPassword" Content="Contraseña:" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="txtPassword1" HorizontalAlignment="Left" Margin="16,297,0,0" VerticalAlignment="Top" Width="219" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblPassword2" Content="Repetir Contraseña:" HorizontalAlignment="Left" Margin="270,270,0,0" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="txtPassword2" HorizontalAlignment="Left" Margin="270,297,0,0" VerticalAlignment="Top" Width="223" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblPerfilEdit" Content="Perfil:" HorizontalAlignment="Left" Margin="10,344,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbxPerfilesEdit" HorizontalAlignment="Left" Margin="16,376,0,0" VerticalAlignment="Top" Width="219" SelectionChanged="cbxPerfilesEdit_SelectionChanged"/>
+            <Label x:Name="lblAreaEdit" Content="Área:" HorizontalAlignment="Left" Margin="270,344,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbxAreaEdit" HorizontalAlignment="Left" Margin="274,376,0,0" VerticalAlignment="Top" Width="219"/>
+            <TextBox x:Name="txtIdUserEdit" HorizontalAlignment="Left" Height="23" Margin="90,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnEliminarUser" Content="Eliminar Usuario" HorizontalAlignment="Left" Margin="110,421,0,0" VerticalAlignment="Top" Width="84" Background="#FFF32121" BorderBrush="#FFBB0F0F" Click="btnEliminarUser_Click"/>
+        </Grid>
+        <Button x:Name="btnCerrarSesion" Content="" HorizontalAlignment="Left" Margin="13,44,0,-38" VerticalAlignment="Top" Width="24" Height="25" Click="btnCerrarSesion_Click" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="img/salir.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
