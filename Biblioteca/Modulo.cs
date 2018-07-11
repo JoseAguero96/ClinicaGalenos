@@ -11,11 +11,12 @@ namespace Biblioteca
         public Modulo(int id, string hora, bool act)
         {
             this.id = id;
-            this.hora = hora;
+            this.start_time = hora;
             this.isActivo = act;
         }
         public int id { get; set; }
-        public string hora { get; set; }
+        public string start_time { get; set; }
+        public string finish_time { get; set; }
         public bool isActivo { get; set; }
     }
 }
