@@ -13,5 +13,7 @@ namespace Biblioteca
         public int atention_module_id { get; set; }
         public int user_id { get; set; }
         public string day { get; set; }
+        public string nombre_paciente { get; set; }
+        public string estado_agenda { get; set; }
     }
 }

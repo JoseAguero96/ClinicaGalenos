@@ -103,7 +103,7 @@
                 <ImageBrush ImageSource="img/salir.png"/>
             </Button.Background>
         </Button>
-        <Grid x:Name="gridRegistrarAtencion" HorizontalAlignment="Left" Height="332" Margin="22,178,0,-479" VerticalAlignment="Top" Width="755">
+        <Grid x:Name="gridRegistrarAtencion" HorizontalAlignment="Left" Height="332" Margin="22,178,0,-479" VerticalAlignment="Top" Width="755" d:IsHidden="True">
             <Label x:Name="lblRutRegAtencion" Content="Rut Paciente:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top"/>
             <Label x:Name="lblTitleReg" Content="Registrar una atención" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
             <TextBox x:Name="txtRutReg" HorizontalAlignment="Left" Height="28" Margin="16,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderThickness="0,0,0,2"/>
@@ -178,17 +178,30 @@
             <Label x:Name="lblTitlesDias" Content="Lunes                     Martes                     Miercoles                     Jueves                     Viernes                     Sábado                     Domingo" HorizontalAlignment="Left" Margin="48,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Button x:Name="btnEditar" Content="Editar Agenda" HorizontalAlignment="Left" Margin="739,12,0,0" VerticalAlignment="Top" Width="131" Background="#FF15C32D" BorderBrush="#FF159928"/>
         </Grid>
-        <Grid x:Name="gridMenuMedicos" HorizontalAlignment="Left" Height="462" Margin="22,178,0,-609" VerticalAlignment="Top" Width="883" d:IsHidden="True">
+        <Grid x:Name="gridMenuMedicos" HorizontalAlignment="Left" Height="462" Margin="22,178,0,-609" VerticalAlignment="Top" Width="1164">
             <Label x:Name="lblPacientesHoy" Content="Pacientes de hoy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <DataGrid x:Name="gvPacientes" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="569" Height="387" AutoGenerateColumns="False">
+            <DataGrid x:Name="gvPacientes" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="569" Height="387" AutoGenerateColumns="False" SelectionChanged="gvPacientes_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colIdP" Header="id" Binding="{Binding Path=id}" Width="*"/>
-                    <DataGridTextColumn x:Name="colNameFull" Header="Nombre" Binding="{Binding Path=fullName}" Width="*"/>
+                    <DataGridTextColumn x:Name="colIdAgenda" Header="id" Binding="{Binding Path=id}" Width="*" Visibility="Hidden"/>
+                    <DataGridTextColumn x:Name="colIdP" Header="id" Binding="{Binding Path=user_id}" Width="*"/>
+                    <DataGridTextColumn x:Name="colNameFull" Header="Nombre" Binding="{Binding Path=nombre_paciente}" Width="*"/>
+                    <DataGridTextColumn x:Name="colEstado" Header="Estado" Binding="{Binding Path=estado_agenda}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Label x:Name="lblNombre" Content="Nombre Paciente" HorizontalAlignment="Left" Margin="668,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+            <Label x:Name="lblId" Content="Id del Paciente" HorizontalAlignment="Left" Margin="668,139,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtNombrePacienteMedico" HorizontalAlignment="Left" Height="23" Margin="874,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" IsReadOnly="True"/>
+            <TextBox x:Name="txtIdPacienteMedico" HorizontalAlignment="Left" Height="23" Margin="874,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" IsReadOnly="True"/>
+            <Button x:Name="btnAtencion" Content="Marcar Atención Finalizada" HorizontalAlignment="Left" Margin="668,303,0,0" VerticalAlignment="Top" Width="448" Click="btnAtencion_Click"/>
+            <Label x:Name="lblTitle1" Content="" HorizontalAlignment="Left" Margin="874,31,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblEstado" Content="Estado del Paciente" HorizontalAlignment="Left" Margin="668,212,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtEstado" HorizontalAlignment="Left" Height="23" Margin="874,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" IsReadOnly="True"/>
+            <TextBox x:Name="txtIdAgenda" HorizontalAlignment="Left" Height="23" Margin="714,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+            <Label x:Name="lblMensaje" Content="" HorizontalAlignment="Left" Margin="686,384,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.818,-0.222"/>
+            <Label x:Name="lblmsm" Content="Datos del Paciente" HorizontalAlignment="Left" Margin="668,0,0,0" VerticalAlignment="Top"/>
 
         </Grid>
-        <TextBox x:Name="txt_userid" HorizontalAlignment="Left" Height="23" Margin="862,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_userid" HorizontalAlignment="Left" Height="23" Margin="862,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
 
     </Grid>
 </Window>

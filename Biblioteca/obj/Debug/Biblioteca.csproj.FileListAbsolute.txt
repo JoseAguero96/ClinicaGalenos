@@ -5,3 +5,12 @@ C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\Biblioteca\bi
 C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.dll
 C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.pdb
 C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\bin\Debug\Biblioteca.dll
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.csprojAssemblyReference.cache
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.csproj.CopyComplete
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.dll
+C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\Biblioteca\obj\Debug\Biblioteca.pdb

@@ -206,7 +206,7 @@ namespace ClinicaGalenos
                 var jsonAgendas = conexion.ejecutarLlamada("GET", "agendas", "", null);
                 List<Agenda> agenda = new List<Agenda>();
 
-                List<Usuario> nueva_lista = new List<Usuario>();
+                List<Agenda> nueva_lista = new List<Agenda>();
 
                 agenda = JsonConvert.DeserializeObject<List<Agenda>>(jsonAgendas);
 
@@ -214,14 +214,19 @@ namespace ClinicaGalenos
                 {
                     if (item.medico_id == id_medico)
                     {
-                        var pacientes = conexion.ejecutarLlamada("GET", "users/"+item.user_id, "", null);
+                        var pacientes = conexion.ejecutarLlamada("GET", "users/" + item.user_id, "", null);
                         Usuario users = JsonConvert.DeserializeObject<Usuario>(pacientes);
-
-                        nueva_lista.Add(users);
-                        
+                        Agenda ag = new Agenda();
+                        if (item.estado_agenda == "En espera" || item.estado_agenda == "Atendido")
+                        {
+                            ag.estado_agenda = "En espera";
+                            ag.id = item.id;
+                            ag.nombre_paciente = users.fullName;
+                            ag.user_id = users.id;
+                            ag.estado_agenda = item.estado_agenda;
+                            nueva_lista.Add(ag);
+                        }
                     }
-
-
                 }
                 gvPacientes.ItemsSource = nueva_lista;
                 gridMenuMedicos.Visibility = Visibility.Visible;
@@ -642,6 +647,74 @@ namespace ClinicaGalenos
             {
                 gvMedicos.SelectedIndex = -1;
             }
+        }
+
+        private void gvPacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (gvPacientes.SelectedIndex != -1)
+            { 
+                Agenda ag = this.gvPacientes.SelectedItem as Agenda;         
+                int id = ag.user_id;
+                string nombre = ag.nombre_paciente;
+                string estado = ag.estado_agenda;
+                int idAgenda = ag.id;
+
+                txtNombrePacienteMedico.Text = nombre;
+                txtIdPacienteMedico.Text = id.ToString();
+                txtEstado.Text = estado;
+                txtIdAgenda.Text = idAgenda.ToString();
+                if (estado == "Atendido")
+                {
+                    btnAtencion.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
+        private void btnAtencion_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtNombrePacienteMedico.Text != null && txtIdPacienteMedico.Text != null && txtEstado.Text != null)
+            {
+                gvPacientes.UnselectAll();
+                int idAgenda = int.Parse(txtIdAgenda.Text);
+                string estado = "Atendido";
+                var jsonObject = new {estado_agenda = estado};
+                string result = conexion.ejecutarLlamada("PUT", "agendas/" + idAgenda, "", jsonObject);
+                if(result != "false")
+                {
+                    ///Resetear datagrid
+                    int id_medico = int.Parse(txt_userid.Text);
+                    var jsonAgendas = conexion.ejecutarLlamada("GET", "agendas", "", null);
+                    List<Agenda> agenda = new List<Agenda>();
+
+                    List<Agenda> nueva_lista = new List<Agenda>();
+
+                    agenda = JsonConvert.DeserializeObject<List<Agenda>>(jsonAgendas);
+
+                    foreach (Agenda item in agenda)
+                    {
+                        if (item.medico_id == id_medico)
+                        {
+                            var pacientes = conexion.ejecutarLlamada("GET", "users/" + item.user_id, "", null);
+                            Usuario users = JsonConvert.DeserializeObject<Usuario>(pacientes);
+                            Agenda ag = new Agenda();
+                            if (item.estado_agenda == "En espera" || item.estado_agenda == "Atendido")
+                            {
+                                ag.estado_agenda = "En espera";
+                                ag.id = item.id;
+                                ag.nombre_paciente = users.fullName;
+                                ag.user_id = users.id;
+                                ag.estado_agenda = item.estado_agenda;
+                                nueva_lista.Add(ag);
+                            }
+                        }
+                    }
+                    gvPacientes.ItemsSource = nueva_lista;
+                    gridMenuMedicos.Visibility = Visibility.Visible;
+
+                }
+            }
+            //Mesaje exitoso
+            MessageBox.Show("Cliente marcado como atendido exitosamente.");
         }
     }
 }
