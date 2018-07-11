@@ -73,6 +73,12 @@ namespace ClinicaGalenos
                     else if (user.profile_id == 3)
                     {
                         perfil = "Médico";
+                        var jsonMeds = conexion.ejecutarLlamada("GET", "medicos", "", "");
+                        List<Medico> medicos = JsonConvert.DeserializeObject<List<Medico>>(jsonMeds);
+                        foreach (Medico item in medicos)
+                        {
+                            wPrincipal.txt_userid.Text = item.id.ToString();
+                        }
                     }
                     else
                     {
@@ -81,6 +87,7 @@ namespace ClinicaGalenos
                     wPrincipal.DataContext = user;
 
                     wPrincipal.txt_Profile.Text = perfil;
+                    
                     wPrincipal.lbl_Bienvenida.Content = string.Format("Hola {0} | {1}", user.name, perfil);
                     wPrincipal.Owner = this;
                     wPrincipal.Show();

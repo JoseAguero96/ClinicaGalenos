@@ -31,18 +31,23 @@ namespace ClinicaGalenos
             txt_Profile.Visibility = Visibility.Collapsed;
             txtIdPaciente.Visibility = Visibility.Collapsed;
             txtIdUserEdit.Visibility = Visibility.Collapsed;
+            txt_userid.Visibility = Visibility.Collapsed;
 
             gridManejoUsuarios.Visibility = Visibility.Hidden;
             gridAgendarHora.Visibility = Visibility.Hidden;
             gridNewEdit.Visibility = Visibility.Hidden;
 
-            //Buttons
+            // Buttons
             btnAddNew.Visibility = Visibility.Hidden;
             btnEdit.Visibility = Visibility.Hidden;
 
             // Grids Menú
             gridMenuSecretaria.Visibility = Visibility.Hidden;
             gridAdministrador.Visibility = Visibility.Hidden;
+            gridRegistrarAtencion.Visibility = Visibility.Hidden;
+            gridAgendaMedicos.Visibility = Visibility.Hidden;
+            gridAgendas.Visibility = Visibility.Hidden;
+            gridMenuMedicos.Visibility = Visibility.Hidden;
 
         }
 
@@ -66,9 +71,45 @@ namespace ClinicaGalenos
                     
                     break;
                 case 1:
+                    // Botón médicos
+                    var jsonMedicos = conexion.ejecutarLlamada("GET", "users" + "", "", null);
+                    List<Usuario> medicos = new List<Usuario>();
+
+                    List<Usuario> medicos_list = new List<Usuario>();
+
+                    medicos = JsonConvert.DeserializeObject<List<Usuario>>(jsonMedicos);
+
+                    foreach (Usuario item in medicos)
+                    {
+                        if (item.profile_id == 3)
+                        {
+                            Usuario medico = new Usuario();
+
+                            medico.id = item.id;
+                            medico.username = item.username;
+                            medico.email = item.email;
+                            medico.name = item.name;
+                            medico.last_name = item.last_name;
+                            medico.birth_day = item.birth_day;
+                            medico.phone_number = item.phone_number;
+                            medico.rut = item.rut;
+                            medico.profile_id = item.profile_id;
+
+                            medicos_list.Add(medico);
+                        }
+                    }
+                    gvMedicos.ItemsSource = medicos_list;
+
+                    gridRegistrarAtencion.Visibility = Visibility.Hidden;
+                    gridAgendarHora.Visibility = Visibility.Hidden;
+                    gridAgendas.Visibility = Visibility.Hidden;
+                    gridAgendaMedicos.Visibility = Visibility.Visible;
                     break;
                 case 2:
                     // botón agendar hora
+                    gridAgendas.Visibility = Visibility.Hidden;
+                    gridAgendaMedicos.Visibility = Visibility.Hidden;
+                    gridRegistrarAtencion.Visibility = Visibility.Hidden;
                     gridAgendarHora.Visibility = Visibility.Visible;
                     #region Combobox Areas (Llenado)
                     // Llenamos el combobox de areas
@@ -93,6 +134,21 @@ namespace ClinicaGalenos
                     #endregion
                     break;
                 case 3:
+                    List<MetodoPago> mp_list = new List<MetodoPago>();
+
+                    mp_list.Add(new MetodoPago(1, "Efectivo"));
+                    mp_list.Add(new MetodoPago(2, "Documento"));
+                    mp_list.Add(new MetodoPago(3, "Tarjeta"));
+                    mp_list.Add(new MetodoPago(4, "Bono"));
+
+                    cbxMetodo.ItemsSource = mp_list;
+                    cbxMetodo.DisplayMemberPath = "metodo";
+                    cbxMetodo.SelectedValuePath = "id";
+
+                    gridAgendas.Visibility = Visibility.Hidden;
+                    gridAgendaMedicos.Visibility = Visibility.Hidden;
+                    gridAgendarHora.Visibility = Visibility.Hidden;
+                    gridRegistrarAtencion.Visibility = Visibility.Visible;
                     break;
                 case 4:
                     var json = conexion.ejecutarLlamada("GET", "users" + "", "", null);
@@ -143,6 +199,32 @@ namespace ClinicaGalenos
             else if (txt_Profile.Text == "Administrador")
             {
                 gridAdministrador.Visibility = Visibility.Visible;
+            }
+            else if (txt_Profile.Text == "Médico")
+            {
+                int id_medico = int.Parse(txt_userid.Text);
+                var jsonAgendas = conexion.ejecutarLlamada("GET", "agendas", "", null);
+                List<Agenda> agenda = new List<Agenda>();
+
+                List<Usuario> nueva_lista = new List<Usuario>();
+
+                agenda = JsonConvert.DeserializeObject<List<Agenda>>(jsonAgendas);
+
+                foreach (Agenda item in agenda)
+                {
+                    if (item.medico_id == id_medico)
+                    {
+                        var pacientes = conexion.ejecutarLlamada("GET", "users/"+item.user_id, "", null);
+                        Usuario users = JsonConvert.DeserializeObject<Usuario>(pacientes);
+
+                        nueva_lista.Add(users);
+                        
+                    }
+
+
+                }
+                gvPacientes.ItemsSource = nueva_lista;
+                gridMenuMedicos.Visibility = Visibility.Visible;
             }
         }
 
@@ -530,6 +612,36 @@ namespace ClinicaGalenos
 
             }
             gvUsers.ItemsSource = nueva_lista;
+        }
+
+        private void gvMedicos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(gvMedicos.SelectedIndex != -1)
+            {
+                Usuario user = this.gvMedicos.SelectedItem as Usuario;
+                string nombre = user.fullName;
+                lblTitleAgenda.Content = "Agenda de " + nombre;
+
+                List<Modulo> modulos = new List<Modulo>();
+
+                modulos.Add(new Modulo(1, "8:00", true));
+                modulos.Add(new Modulo(2, "8:30", false));
+                modulos.Add(new Modulo(3, "9:00", true));
+                modulos.Add(new Modulo(4, "9:30", true));
+
+                gvLunes.ItemsSource = modulos;
+                gvMartes.ItemsSource = modulos;
+                gvMiercoles.ItemsSource = modulos;
+                gvJueves.ItemsSource = modulos;
+                gvViernes.ItemsSource = modulos;
+                gvSabado.ItemsSource = modulos;
+                gvDomingo.ItemsSource = modulos;
+
+                gridAgendas.Visibility = Visibility.Visible;
+            }else
+            {
+                gvMedicos.SelectedIndex = -1;
+            }
         }
     }
 }

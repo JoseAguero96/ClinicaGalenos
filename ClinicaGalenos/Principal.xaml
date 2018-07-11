@@ -30,9 +30,8 @@
             </Grid>
         </Border>
         <Rectangle Fill="#FF1C1C1D" HorizontalAlignment="Left" Margin="0,30,0,-63" Stroke="Black" Width="1297"/>
-        <TextBox x:Name="txt_Profile" HorizontalAlignment="Left" Height="23" Margin="722,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbl_Bienvenida" Content="Label" HorizontalAlignment="Left" Height="51" Margin="42,44,0,-64" VerticalAlignment="Top" Width="332" Background="{x:Null}" Foreground="#DDFFFFFF" FontWeight="Normal"/>
-        <Grid x:Name="gridAgendarHora" HorizontalAlignment="Left" Height="280" Margin="22,211,0,-460" VerticalAlignment="Top" Width="580">
+        <Grid x:Name="gridAgendarHora" HorizontalAlignment="Left" Height="280" Margin="42,192,0,-441" VerticalAlignment="Top" Width="580" d:IsHidden="True">
             <Label x:Name="lblRut" Content="R.U.T" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="58" Margin="0,6,0,0"/>
             <TextBox x:Name="txtBuscarRut" HorizontalAlignment="Left" Height="27" Margin="55,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderThickness="0,0,0,2" BorderBrush="Black" Foreground="#DD000000"/>
             <Button x:Name="btnBuscarRut" Content="Buscar" HorizontalAlignment="Left" Margin="246,7,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="btnBuscarRut_Click"/>
@@ -55,11 +54,11 @@
             <Button Uid="0" x:Name="btnMenuInformes" Content="Informes" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top" Width="167" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
             <Button Uid="3" x:Name="btnMenuAtencion" Content="Registrar Atención" HorizontalAlignment="Left" Margin="599,10,0,0" VerticalAlignment="Top" Width="166" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
         </Grid>
-        <Grid x:Name="gridAdministrador" HorizontalAlignment="Left" Height="84" Margin="22,115,0,-168" VerticalAlignment="Top" Width="775">
+        <Grid x:Name="gridAdministrador" HorizontalAlignment="Left" Height="84" Margin="22,110,0,-163" VerticalAlignment="Top" Width="775" d:IsHidden="True">
             <Button Uid="4" x:Name="btnManejoUsuarios" Content="Manejo de usuarios" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="167" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
             <Button Uid="5" x:Name="btnRecaudaciones" Content="Recaudaciones" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="168" Background="#FF2196F3" BorderBrush="#FF4D4D4D" BorderThickness="0,0,0,2" Click="btnMenu_Click" Height="46"/>
         </Grid>
-        <Grid x:Name="gridManejoUsuarios" HorizontalAlignment="Left" Height="442" Margin="22,204,0,-615" VerticalAlignment="Top" Width="728">
+        <Grid x:Name="gridManejoUsuarios" HorizontalAlignment="Left" Height="442" Margin="22,180,0,-591" VerticalAlignment="Top" Width="728" d:IsHidden="True">
             <Button x:Name="btnAgregarUsuario" Content="+ Nuevo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="132" Click="btnAgregarUsuario_Click"/>
             <DataGrid x:Name="gvUsers" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" Width="710" Height="360" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False" SelectionChanged="gvUsers_SelectionChanged">
                 <DataGrid.Columns>
@@ -73,7 +72,7 @@
             </DataGrid>
             <Rectangle Fill="#FF2196F3" HorizontalAlignment="Left" Height="279" Margin="723,10,0,0" Stroke="#FF2196F3" VerticalAlignment="Top" Width="2"/>
         </Grid>
-        <Grid x:Name="gridNewEdit" HorizontalAlignment="Left" Height="466" Margin="755,194,0,-629" VerticalAlignment="Top" Width="503">
+        <Grid x:Name="gridNewEdit" HorizontalAlignment="Left" Height="466" Margin="722,180,0,-615" VerticalAlignment="Top" Width="503" d:IsHidden="True">
             <Label x:Name="lblNombreEdit" Content="Nombre:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtNombreEdit" HorizontalAlignment="Left" Height="28" Margin="16,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" BorderThickness="0,0,0,2"/>
             <Label x:Name="lblApellidoEdit" Content="Apellido:" HorizontalAlignment="Left" Margin="262,54,0,0" VerticalAlignment="Top"/>
@@ -98,11 +97,98 @@
             <TextBox x:Name="txtIdUserEdit" HorizontalAlignment="Left" Height="23" Margin="90,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
             <Button x:Name="btnEliminarUser" Content="Eliminar Usuario" HorizontalAlignment="Left" Margin="110,421,0,0" VerticalAlignment="Top" Width="84" Background="#FFF32121" BorderBrush="#FFBB0F0F" Click="btnEliminarUser_Click"/>
         </Grid>
+        <TextBox x:Name="txt_Profile" HorizontalAlignment="Left" Height="23" Margin="722,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnCerrarSesion" Content="" HorizontalAlignment="Left" Margin="13,44,0,-38" VerticalAlignment="Top" Width="24" Height="25" Click="btnCerrarSesion_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="img/salir.png"/>
             </Button.Background>
         </Button>
+        <Grid x:Name="gridRegistrarAtencion" HorizontalAlignment="Left" Height="332" Margin="22,178,0,-479" VerticalAlignment="Top" Width="755">
+            <Label x:Name="lblRutRegAtencion" Content="Rut Paciente:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblTitleReg" Content="Registrar una atención" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+            <TextBox x:Name="txtRutReg" HorizontalAlignment="Left" Height="28" Margin="16,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" BorderThickness="0,0,0,2"/>
+            <TextBox x:Name="txtValorReg" HorizontalAlignment="Left" Height="32" Margin="16,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" BorderThickness="0,0,0,2"/>
+            <Label x:Name="lblMonto" Content="Valor Atención:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblMetodo" Content="Método de pago:" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbxMetodo" HorizontalAlignment="Left" Height="31" Margin="16,217,0,0" VerticalAlignment="Top" Width="183"/>
+            <Button x:Name="btnClickNewReg" Content="Registrar" HorizontalAlignment="Left" Margin="16,275,0,0" VerticalAlignment="Top" Width="100"/>
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="267,70,0,0" VerticalAlignment="Top" Width="272"/>
+            <Label x:Name="lblMedicoAgenda" Content="Médico:" HorizontalAlignment="Left" Margin="267,43,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid x:Name="gridAgendaMedicos" HorizontalAlignment="Left" Height="430" Margin="42,194,0,-593" VerticalAlignment="Top" Width="394" d:IsHidden="True">
+            <Label x:Name="lblAgendaMedicos" Content="Manejo de Agendas:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <DataGrid x:Name="gvMedicos" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="294" Height="354" AutoGenerateColumns="False" SelectionChanged="gvMedicos_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colNombreCompleto" Header="Nombre" Binding="{Binding Path=fullName}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <Grid x:Name="gridAgendas" HorizontalAlignment="Left" Height="468" Margin="382,172,0,-609" VerticalAlignment="Top" Width="886" d:IsHidden="True">
+            <Label x:Name="lblTitleAgenda" Content="Agenda de " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="433" FontSize="20" FontWeight="Bold"/>
+            <DataGrid x:Name="gvLunes" HorizontalAlignment="Left" Margin="10,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes" Header="Hora" Binding="{Binding Path=hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="gvMartes" HorizontalAlignment="Left" Margin="135,85,0,-13" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes1" Header="Hora" Binding="{Binding hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes1" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="gvMiercoles" HorizontalAlignment="Left" Margin="260,85,0,-13" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes2" Header="Hora" Binding="{Binding hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes2" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="gvJueves" HorizontalAlignment="Left" Margin="380,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes3" Header="Hora" Binding="{Binding hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes3" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="gvViernes" HorizontalAlignment="Left" Margin="505,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes4" Header="Hora" Binding="{Binding hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes4" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="gvSabado" HorizontalAlignment="Left" Margin="625,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes5" Header="Hora" Binding="{Binding hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes5" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="gvDomingo" HorizontalAlignment="Left" Margin="750,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colLunes6" Header="Hora" Binding="{Binding hora}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="colCheckLunes6" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblTitlesDias" Content="Lunes                     Martes                     Miercoles                     Jueves                     Viernes                     Sábado                     Domingo" HorizontalAlignment="Left" Margin="48,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Button x:Name="btnEditar" Content="Editar Agenda" HorizontalAlignment="Left" Margin="739,12,0,0" VerticalAlignment="Top" Width="131" Background="#FF15C32D" BorderBrush="#FF159928"/>
+        </Grid>
+        <Grid x:Name="gridMenuMedicos" HorizontalAlignment="Left" Height="462" Margin="22,178,0,-609" VerticalAlignment="Top" Width="883" d:IsHidden="True">
+            <Label x:Name="lblPacientesHoy" Content="Pacientes de hoy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <DataGrid x:Name="gvPacientes" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="569" Height="387" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colIdP" Header="id" Binding="{Binding Path=id}" Width="*"/>
+                    <DataGridTextColumn x:Name="colNameFull" Header="Nombre" Binding="{Binding Path=fullName}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <TextBox x:Name="txt_userid" HorizontalAlignment="Left" Height="23" Margin="862,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

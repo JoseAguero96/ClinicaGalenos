@@ -13,6 +13,8 @@ namespace Biblioteca
         public string apellido { get; set; }
         public int area_id { get; set; }
 
+        public int? user_id { get; set; }
+
         public string nombreCompleto { get; set; }
 
     }
