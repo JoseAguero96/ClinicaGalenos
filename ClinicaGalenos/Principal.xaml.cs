@@ -134,6 +134,10 @@ namespace ClinicaGalenos
                     #endregion
                     break;
                 case 3:
+                    var jsonMeds = conexion.ejecutarLlamada("GET", "medicos", "", null);
+                    lblHorasAgregadas.Visibility = Visibility.Hidden;
+                    cbxHorasPaciente.Visibility = Visibility.Hidden;
+
                     List<MetodoPago> mp_list = new List<MetodoPago>();
 
                     mp_list.Add(new MetodoPago(1, "Efectivo"));
@@ -217,11 +221,8 @@ namespace ClinicaGalenos
                         var pacientes = conexion.ejecutarLlamada("GET", "users/"+item.user_id, "", null);
                         Usuario users = JsonConvert.DeserializeObject<Usuario>(pacientes);
 
-                        nueva_lista.Add(users);
-                        
+                        nueva_lista.Add(users);           
                     }
-
-
                 }
                 gvPacientes.ItemsSource = nueva_lista;
                 gridMenuMedicos.Visibility = Visibility.Visible;
@@ -233,7 +234,7 @@ namespace ClinicaGalenos
         {
             var userjson = conexion.ejecutarLlamada("GET", "buscar_por_rut?rut=" + txtBuscarRut.Text, "", "");
 
-            if (userjson != null)
+            if (userjson != "null")
             {
                 Usuario user = JsonConvert.DeserializeObject<Usuario>(userjson);
                 if (user.profile_id == 4)
@@ -248,6 +249,7 @@ namespace ClinicaGalenos
             }else
             {
                 txtNombrePaciente.Text = "";
+                MessageBox.Show("Rut paciente no encontrado");
             }
         }
 
@@ -621,26 +623,103 @@ namespace ClinicaGalenos
                 Usuario user = this.gvMedicos.SelectedItem as Usuario;
                 string nombre = user.fullName;
                 lblTitleAgenda.Content = "Agenda de " + nombre;
-
-                List<Modulo> modulos = new List<Modulo>();
-
-                modulos.Add(new Modulo(1, "8:00", true));
-                modulos.Add(new Modulo(2, "8:30", false));
-                modulos.Add(new Modulo(3, "9:00", true));
-                modulos.Add(new Modulo(4, "9:30", true));
+                var jsonModulos = conexion.ejecutarLlamada("GET", "atention_modules", "", null);
+                List<Modulo> modulos = JsonConvert.DeserializeObject<List<Modulo>>(jsonModulos);
+                List<Modulo> modulosMartes = JsonConvert.DeserializeObject<List<Modulo>>(jsonModulos);
+                List<Modulo> modulosMiercoles = JsonConvert.DeserializeObject<List<Modulo>>(jsonModulos);
+                List<Modulo> modulosJueves = JsonConvert.DeserializeObject<List<Modulo>>(jsonModulos);
+                List<Modulo> modulosViernes = JsonConvert.DeserializeObject<List<Modulo>>(jsonModulos);
+                List<Modulo> modulosSabado = JsonConvert.DeserializeObject<List<Modulo>>(jsonModulos);
 
                 gvLunes.ItemsSource = modulos;
-                gvMartes.ItemsSource = modulos;
-                gvMiercoles.ItemsSource = modulos;
-                gvJueves.ItemsSource = modulos;
-                gvViernes.ItemsSource = modulos;
-                gvSabado.ItemsSource = modulos;
-                gvDomingo.ItemsSource = modulos;
+                gvMartes.ItemsSource = modulosMartes;
+                gvMiercoles.ItemsSource = modulosMiercoles;
+                gvJueves.ItemsSource = modulosJueves;
+                gvViernes.ItemsSource = modulosViernes;
+                gvSabado.ItemsSource = modulosSabado;
 
                 gridAgendas.Visibility = Visibility.Visible;
             }else
             {
                 gvMedicos.SelectedIndex = -1;
+            }
+        }
+
+        private void btnBuscarHora_Click(object sender, RoutedEventArgs e)
+        {
+            string rut = txtRutReg.Text;
+            var jsonBusqueda = conexion.ejecutarLlamada("GET", "horas_por_rut?rut=" + rut, "", null);
+            int count = 0;
+            if (jsonBusqueda != "null")
+            {
+                List<Agenda> agendas = JsonConvert.DeserializeObject<List<Agenda>>(jsonBusqueda);
+
+                List<HoraAtencion> agenda_list = new List<HoraAtencion>();
+
+                foreach (Agenda item in agendas)
+                {
+                    if (item.estado_agenda == null)
+                    {
+                        HoraAtencion ht = new HoraAtencion();
+
+                        var jsonModulo = conexion.ejecutarLlamada("GET", "atention_modules/" + item.atention_module_id, "", null);
+                        Modulo modulo = JsonConvert.DeserializeObject<Modulo>(jsonModulo);
+
+                        ht.id = item.id;
+                        ht.hora_atencion = modulo.start_time;
+
+                        agenda_list.Add(ht);
+                        count++;
+                    }
+                    
+                }
+
+                if (count > 0)
+                {
+                    cbxHorasPaciente.Visibility = Visibility.Visible;
+                    lblHorasAgregadas.Visibility = Visibility.Visible;
+                    cbxHorasPaciente.ItemsSource = agenda_list;
+                    cbxHorasPaciente.DisplayMemberPath = "hora_atencion";
+                    cbxHorasPaciente.SelectedValuePath = "id";
+                }
+                else
+                {
+                    MessageBox.Show("No se han encontrado horas para este rut.");
+                }
+
+                
+            }else
+            {
+                MessageBox.Show("No se han encontrado horas para este rut.");
+            }
+            
+        }
+
+        private void btnClickNewReg_Click(object sender, RoutedEventArgs e)
+        {
+            string rut = txtRutReg.Text;
+            var jsonPaciente = conexion.ejecutarLlamada("GET", "buscar_por_rut?rut="+rut, "", null);
+            Usuario user = JsonConvert.DeserializeObject<Usuario>(jsonPaciente);
+
+            int user_id = user.id;
+            int agenda_id = Convert.ToInt32(cbxHorasPaciente.SelectedValue);
+            int payment_type_id = Convert.ToInt32(cbxMetodo.SelectedValue);
+            int monto = int.Parse(txtValorReg.Text);
+
+            var objJson = new { user_id = user_id, agenda_id = agenda_id, payment_type_id = payment_type_id, monto = monto };
+            string result = conexion.ejecutarLlamada("POST", "payments", "", objJson);
+
+            if (result != "false")
+            {
+                Payment payment = JsonConvert.DeserializeObject<Payment>(result);
+                int agen_id = payment.agenda_id;
+                var jsonEdit = new { estado_agenda = "En espera" };
+                string edit_agenda = conexion.ejecutarLlamada("PUT", "agendas/" + agen_id, "", jsonEdit);
+
+                MessageBox.Show("Atención registrada correctamente");
+            }else
+            {
+                MessageBox.Show("Error al registrar la atención");
             }
         }
     }

@@ -111,9 +111,10 @@
             <Label x:Name="lblMonto" Content="Valor Atención:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
             <Label x:Name="lblMetodo" Content="Método de pago:" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbxMetodo" HorizontalAlignment="Left" Height="31" Margin="16,217,0,0" VerticalAlignment="Top" Width="183"/>
-            <Button x:Name="btnClickNewReg" Content="Registrar" HorizontalAlignment="Left" Margin="16,275,0,0" VerticalAlignment="Top" Width="100"/>
-            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="267,70,0,0" VerticalAlignment="Top" Width="272"/>
-            <Label x:Name="lblMedicoAgenda" Content="Médico:" HorizontalAlignment="Left" Margin="267,43,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnClickNewReg" Content="Registrar" HorizontalAlignment="Left" Margin="16,275,0,0" VerticalAlignment="Top" Width="100" Click="btnClickNewReg_Click"/>
+            <ComboBox x:Name="cbxHorasPaciente" HorizontalAlignment="Left" Margin="300,70,0,0" VerticalAlignment="Top" Width="272"/>
+            <Label x:Name="lblHorasAgregadas" Content="Horas Agendadas:" HorizontalAlignment="Left" Margin="296,43,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnBuscarHora" Content="Buscar" HorizontalAlignment="Left" Margin="204,70,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscarHora_Click"/>
         </Grid>
         <Grid x:Name="gridAgendaMedicos" HorizontalAlignment="Left" Height="430" Margin="42,194,0,-593" VerticalAlignment="Top" Width="394" d:IsHidden="True">
             <Label x:Name="lblAgendaMedicos" Content="Manejo de Agendas:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
@@ -125,57 +126,54 @@
 
         </Grid>
         <Grid x:Name="gridAgendas" HorizontalAlignment="Left" Height="468" Margin="382,172,0,-609" VerticalAlignment="Top" Width="886" d:IsHidden="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="301*"/>
+                <RowDefinition Height="167*"/>
+            </Grid.RowDefinitions>
             <Label x:Name="lblTitleAgenda" Content="Agenda de " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="433" FontSize="20" FontWeight="Bold"/>
-            <DataGrid x:Name="gvLunes" HorizontalAlignment="Left" Margin="10,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+            <DataGrid x:Name="gvLunes" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes" Header="Hora" Binding="{Binding Path=hora}" Width="*"/>
+                    <DataGridTextColumn x:Name="colLunes" Header="Hora" Binding="{Binding Path=start_time}" Width="*"/>
                     <DataGridCheckBoxColumn x:Name="colCheckLunes" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
 
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="gvMartes" HorizontalAlignment="Left" Margin="135,85,0,-13" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+            <DataGrid x:Name="gvMartes" HorizontalAlignment="Left" Margin="135,85,0,0" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes1" Header="Hora" Binding="{Binding hora}" Width="*"/>
-                    <DataGridCheckBoxColumn x:Name="colCheckLunes1" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+                    <DataGridTextColumn x:Name="colMartes" Header="Hora" Binding="{Binding Path=start_time}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="checkMartes" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
 
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="gvMiercoles" HorizontalAlignment="Left" Margin="260,85,0,-13" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+            <DataGrid x:Name="gvMiercoles" HorizontalAlignment="Left" Margin="260,85,0,0" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes2" Header="Hora" Binding="{Binding hora}" Width="*"/>
-                    <DataGridCheckBoxColumn x:Name="colCheckLunes2" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+                    <DataGridTextColumn x:Name="colLunes2" Header="Hora" Binding="{Binding Path=start_time}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="checkMier" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
 
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="gvJueves" HorizontalAlignment="Left" Margin="380,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+            <DataGrid x:Name="gvJueves" HorizontalAlignment="Left" Margin="380,86,0,0" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes3" Header="Hora" Binding="{Binding hora}" Width="*"/>
-                    <DataGridCheckBoxColumn x:Name="colCheckLunes3" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+                    <DataGridTextColumn x:Name="colLunes3" Header="Hora" Binding="{Binding Path=start_time}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="checkJuev" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
 
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="gvViernes" HorizontalAlignment="Left" Margin="505,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+            <DataGrid x:Name="gvViernes" HorizontalAlignment="Left" Margin="505,86,0,0" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes4" Header="Hora" Binding="{Binding hora}" Width="*"/>
-                    <DataGridCheckBoxColumn x:Name="colCheckLunes4" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+                    <DataGridTextColumn x:Name="colLunes4" Header="Hora" Binding="{Binding Path=start_time}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="checkVier" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
 
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="gvSabado" HorizontalAlignment="Left" Margin="625,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
+            <DataGrid x:Name="gvSabado" HorizontalAlignment="Left" Margin="625,86,0,0" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes5" Header="Hora" Binding="{Binding hora}" Width="*"/>
-                    <DataGridCheckBoxColumn x:Name="colCheckLunes5" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
+                    <DataGridTextColumn x:Name="colLunes5" Header="Hora" Binding="{Binding Path=start_time}" Width="*"/>
+                    <DataGridCheckBoxColumn x:Name="checkSab" Header="Activo" Binding="{Binding Path=isActivo}" Width="*"/>
 
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="gvDomingo" HorizontalAlignment="Left" Margin="750,86,0,-14" VerticalAlignment="Top" Width="120" Height="342" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" SelectionMode="Extended">
-                <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="colLunes6" Header="Hora" Binding="{Binding hora}" Width="*"/>
-                    <DataGridCheckBoxColumn x:Name="colCheckLunes6" Header="Activo" Binding="{Binding isActivo}" Width="*"/>
-
-                </DataGrid.Columns>
-            </DataGrid>
-            <Label x:Name="lblTitlesDias" Content="Lunes                     Martes                     Miercoles                     Jueves                     Viernes                     Sábado                     Domingo" HorizontalAlignment="Left" Margin="48,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="lblTitlesDias" Content="Lunes                     Martes                     Miercoles                     Jueves                     Viernes                     Sábado" HorizontalAlignment="Left" Margin="48,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Button x:Name="btnEditar" Content="Editar Agenda" HorizontalAlignment="Left" Margin="739,12,0,0" VerticalAlignment="Top" Width="131" Background="#FF15C32D" BorderBrush="#FF159928"/>
         </Grid>
         <Grid x:Name="gridMenuMedicos" HorizontalAlignment="Left" Height="462" Margin="22,178,0,-609" VerticalAlignment="Top" Width="883" d:IsHidden="True">
