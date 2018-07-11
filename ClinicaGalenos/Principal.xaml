@@ -178,7 +178,7 @@
         </Grid>
         <Grid x:Name="gridMenuMedicos" HorizontalAlignment="Left" Height="462" Margin="22,178,0,-609" VerticalAlignment="Top" Width="1164">
             <Label x:Name="lblPacientesHoy" Content="Pacientes de hoy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <DataGrid x:Name="gvPacientes" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="569" Height="387" AutoGenerateColumns="False" SelectionChanged="gvPacientes_SelectionChanged">
+            <DataGrid x:Name="gvPacientes" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="569" Height="387" AutoGenerateColumns="False" SelectionChanged="gvPacientes_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="colIdAgenda" Header="id" Binding="{Binding Path=id}" Width="*" Visibility="Hidden"/>
                     <DataGridTextColumn x:Name="colIdP" Header="id" Binding="{Binding Path=user_id}" Width="*"/>

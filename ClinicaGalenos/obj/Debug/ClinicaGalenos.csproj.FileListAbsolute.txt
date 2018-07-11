@@ -1,34 +1,3 @@
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.exe.config
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.exe
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.pdb
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.Core.dll
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.S3.dll
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Biblioteca.dll
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignColors.dll
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Biblioteca.pdb
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.Core.pdb
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.Core.xml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.S3.pdb
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.S3.xml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.csprojResolveAssemblyReference.cache
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\MainWindow.g.cs
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\Principal.g.cs
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\App.g.cs
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos_MarkupCompile.cache
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos_MarkupCompile.lref
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\App.baml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\MainWindow.baml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\Principal.baml
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.g.resources
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.Properties.Resources.resources
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.csproj.GenerateResource.Cache
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.exe
-C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.pdb
 C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.exe.config
 C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.exe
 C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.pdb
@@ -62,3 +31,34 @@ C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\obj\Debug\Clini
 C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.csproj.CopyComplete
 C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.exe
 C:\Users\Matias\Desktop\Portafolio\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.pdb
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.exe.config
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.exe
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\ClinicaGalenos.pdb
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.Core.dll
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.S3.dll
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Biblioteca.dll
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignColors.dll
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Biblioteca.pdb
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.Core.xml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.S3.pdb
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\AWSSDK.S3.xml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.csprojResolveAssemblyReference.cache
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\MainWindow.g.cs
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\Principal.g.cs
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\App.g.cs
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos_MarkupCompile.cache
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos_MarkupCompile.lref
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\App.baml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\MainWindow.baml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\Principal.baml
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.g.resources
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.Properties.Resources.resources
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.csproj.GenerateResource.Cache
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.exe
+C:\Users\Jose\Documents\Visual Studio 2015\Projects\ClinicaGalenos\ClinicaGalenos\obj\Debug\ClinicaGalenos.pdb
